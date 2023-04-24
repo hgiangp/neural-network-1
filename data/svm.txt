@@ -1,0 +1,9 @@
+ 
+ Try to find a free program on the internet for designing SVM.
+
+ Down-load at least two databases from the UCI machine learning
+repository, and design the SVMs using the program.
+
+ Compare SVMs and the multilayer feedforward neural networks
+trained using BP, and make some conclusions about the accuracy,
+computing cost, system size, etc.
