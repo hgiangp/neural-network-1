@@ -17,10 +17,10 @@
 #include <float.h>
 #include <time.h>
 
-#define I 3
-#define J 3
+#define I 5
+#define J 10
 #define K 1
-#define n_sample 4
+#define n_sample 16
 #define eta 0.5
 #define lambda 1.0
 #define desired_error 0.001
@@ -29,11 +29,27 @@
 #define randomize() srand((unsigned int)time(NULL))
 
 double x[n_sample][I] = {
-    {0, 0, -1},
-    {0, 1, -1},
-    {1, 0, -1},
-    {1, 1, -1}};
-double d[n_sample][K] = {0, 1, 1, 0};
+    {0, 0, 0, 0, -1}, 
+    {0, 0, 0, 1, -1}, 
+    {0, 0, 1, 0, -1},
+    {0, 0, 1, 1, -1},
+    {0, 1, 0, 0, -1},
+    {0, 1, 0, 1, -1},
+    {0, 1, 1, 0, -1},
+    {0, 1, 1, 1, -1},
+    {1, 0, 0, 0, -1},
+    {1, 0, 0, 1, -1},
+    {1, 0, 1, 0, -1},
+    {1, 0, 1, 1, -1},
+    {1, 1, 0, 0, -1},
+    {1, 1, 0, 1, -1},
+    {1, 1, 1, 0, -1},
+    {1, 1, 1, 1, -1}};
+
+// The desired output is 1 if the number of ones in the inputs is even;
+// otherwise, the output is 0 or -1.
+double d[n_sample][K] = {1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1};
+
 double v[J][I], w[K][J];
 double y[J];
 double o[K];
@@ -165,4 +181,23 @@ void PrintResult(void)
         printf("\n");
     }
     printf("\n\n");
+
+    printf("Output   : ["); 
+    for (i = 0; i < n_sample; i++)
+    {
+        printf("    %.0f ", d[i][0]); 
+    }
+    printf("]\n"); 
+
+    // Print predicted output 
+    printf("Predicted: ["); 
+    for (i = 0; i < n_sample; i++)
+    {
+        FindHidden(i); 
+        FindOutput();
+        printf("%.3f ", o[0]); 
+    }
+    printf("]\n"); 
 }
+
+// https://www.electronicshub.org/parity-generator-and-parity-check/
