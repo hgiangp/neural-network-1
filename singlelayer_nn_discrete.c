@@ -21,7 +21,8 @@
 #define eta 0.5
 #define lambda 1.0
 #define desired_error 0.1
-#define sigmoid(x) (2.0 / (1.0 + exp(-lambda * x)) - 1.0)
+// #define sigmoid(x) (2.0 / (1.0 + exp(-lambda * x)) - 1.0)
+#define step(x) (x > 0)? 1: -1 
 #define frand() (rand() % 10000 / 10001.0)
 #define randomize() srand((unsigned int)time(NULL))
 
@@ -62,7 +63,7 @@ int main()
             }
             for (i = 0; i < R; i++)
             {
-                delta = (d[p][i] - o[i]) * (1 - o[i] * o[i]) / 2;
+                delta = (d[p][i] - o[i]);
                 for (j = 0; j < N; j++)
                 {
                     w[i][j] += eta * delta * x[p][j];
@@ -102,7 +103,7 @@ void FindOutput(int p)
         {
             temp += w[i][j] * x[p][j];
         }
-        o[i] = sigmoid(temp);
+        o[i] = step(temp);
     }
 }
 
@@ -122,7 +123,7 @@ void PrintResult(void)
         printf("\n");
     }
     printf("\n\n");
-    
+
     // Print output 
     for (i = 0; i < n_sample; i++)
     {
