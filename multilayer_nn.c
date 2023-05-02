@@ -18,7 +18,7 @@
 #include <time.h>
 
 #define I 5
-#define J 6
+#define J 10
 #define K 1
 #define n_sample 16
 #define eta 0.5
@@ -28,9 +28,27 @@
 #define frand() (rand() % 10000 / 10001.0)
 #define randomize() srand((unsigned int)time(NULL))
 
+// double x[n_sample][I] = {
+//     {0, 0, 0, 0, -1},
+//     {0, 0, 0, 1, -1},
+//     {0, 0, 1, 0, -1},
+//     {0, 0, 1, 1, -1},
+//     {0, 1, 0, 0, -1},
+//     {0, 1, 0, 1, -1},
+//     {0, 1, 1, 0, -1},
+//     {0, 1, 1, 1, -1},
+//     {1, 0, 0, 0, -1},
+//     {1, 0, 0, 1, -1},
+//     {1, 0, 1, 0, -1},
+//     {1, 0, 1, 1, -1},
+//     {1, 1, 0, 0, -1},
+//     {1, 1, 0, 1, -1},
+//     {1, 1, 1, 0, -1},
+//     {1, 1, 1, 1, -1}};
+
 double x[n_sample][I] = {
-    {0, 0, 0, 0, -1}, 
-    {0, 0, 0, 1, -1}, 
+    {0, 0, 0, 0, -1},
+    {0, 0, 0, 1, -1},
     {0, 0, 1, 0, -1},
     {0, 0, 1, 1, -1},
     {0, 1, 0, 0, -1},
@@ -44,11 +62,14 @@ double x[n_sample][I] = {
     {1, 1, 0, 0, -1},
     {1, 1, 0, 1, -1},
     {1, 1, 1, 0, -1},
-    {1, 1, 1, 1, -1}};
+    {1, 1, 1, 1, -1},
+}; 
 
 // The desired output is 1 if the number of ones in the inputs is even;
 // otherwise, the output is 0 or -1.
-double d[n_sample][K] = {1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1};
+// double d[n_sample][K] = {1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1};
+
+double d[n_sample][K] = {0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1};
 
 double v[J][I], w[K][J];
 double y[J];
@@ -182,22 +203,22 @@ void PrintResult(void)
     }
     printf("\n\n");
 
-    printf("Output   : ["); 
+    printf("Output   : [");
     for (i = 0; i < n_sample; i++)
     {
-        printf("    %.0f ", d[i][0]); 
+        printf("    %.0f ", d[i][0]);
     }
-    printf("]\n"); 
+    printf("]\n");
 
-    // Print predicted output 
-    printf("Predicted: ["); 
+    // Print predicted output
+    printf("Predicted: [");
     for (i = 0; i < n_sample; i++)
     {
-        FindHidden(i); 
+        FindHidden(i);
         FindOutput();
-        printf("%.3f ", o[0]); 
+        printf("%.3f ", o[0]);
     }
-    printf("]\n"); 
+    printf("]\n");
 }
 
 // https://www.electronicshub.org/parity-generator-and-parity-check/

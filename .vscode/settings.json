@@ -6,6 +6,7 @@
         "chrono": "c",
         "ctime": "c",
         "locale": "c",
-        "algorithm": "c"
+        "algorithm": "c",
+        "stdlib.h": "c"
     }
 }
