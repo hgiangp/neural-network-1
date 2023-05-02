@@ -16,7 +16,8 @@
 #define eta 0.5
 #define lambda 1.0
 #define desired_error 0.01
-#define sigmoid(x) (2.0 / (1.0 + exp(-lambda * x)) - 1.0)
+// #define sigmoid(x) (2.0 / (1.0 + exp(-lambda * x)) - 1.0)
+#define step(x) (x > 0)? 1: -1 
 #define frand() (rand() % 10000 / 10001.0)
 #define randomize() srand((unsigned int)time(NULL))
 
@@ -53,7 +54,7 @@ int main()
             Error += 0.5 * pow(d[p] - o, 2.0);
             for (i = 0; i < I; i++)
             {
-                delta = (d[p] - o) * (1 - o * o) / 2;
+                delta = (d[p] - o); 
                 w[i] += eta * delta * x[p][i];
             }
             printf("Error in the %d-th learning cycle=%f\n", q, Error);
@@ -85,7 +86,7 @@ void FindOutput(int p)
 
     for (i = 0; i < I; i++)
         temp += w[i] * x[p][i];
-    o = sigmoid(temp);
+    o = step(temp);
 }
 
 /*************************************************************/

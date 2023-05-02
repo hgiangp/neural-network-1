@@ -64,7 +64,7 @@ int v[n_neuron];
 /***********************************************************************/
 /* Output the patterns, to confirm they are the desired ones           */
 /***********************************************************************/
-Output_Pattern(int k)
+void Output_Pattern(int k)
 {
     int i, j;
 
@@ -82,7 +82,7 @@ Output_Pattern(int k)
 /***********************************************************************/
 /* Output the state of the network in the form of a picture            */
 /***********************************************************************/
-Output_State(int k)
+void Output_State(int k)
 {
     int i, j;
 
@@ -100,7 +100,7 @@ Output_State(int k)
 /***********************************************************************/
 /* Store the patterns into the network                                 */
 /***********************************************************************/
-Store_Pattern()
+void Store_Pattern()
 {
     int i, j, k;
 
@@ -121,7 +121,7 @@ Store_Pattern()
 /* Recall the m-th pattern from the network                            */
 /* The pattern is corrupted by some noises                             */
 /***********************************************************************/
-Recall_Pattern(int m)
+void Recall_Pattern(int m)
 {
     int i, j, k;
     int n_update;
@@ -165,7 +165,7 @@ Recall_Pattern(int m)
 /***********************************************************************/
 /* Initialize the weights                                              */
 /***********************************************************************/
-Initialization()
+void Initialization()
 {
     int i, j;
 
@@ -177,7 +177,7 @@ Initialization()
 /***********************************************************************/
 /* The main program                                                    */
 /***********************************************************************/
-main()
+int main()
 {
     int k;
 

@@ -18,7 +18,7 @@
 #include <time.h>
 
 #define I 5
-#define J 10
+#define J 6
 #define K 1
 #define n_sample 16
 #define eta 0.5
@@ -174,7 +174,7 @@ void PrintResult(void)
 
     printf("\n\n");
     printf("The connection weights in the hidden layer:\n");
-    for (j = 0; j < J - 1; j++)
+    for (j = 0; j < J; j++)
     {
         for (i = 0; i < I; i++)
             printf("%5f ", v[j][i]);

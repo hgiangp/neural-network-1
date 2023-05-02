@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-files=("one_neural" "singlelayer_nn" "singlelayer_nn_discrete" "multilayer_nn")
+files=("one_neuron" "singlelayer_nn" "singlelayer_nn_discrete" "multilayer_nn" "autoassociate_mem" "one_neuron_perception")
 idx=3
 
 cfile=${files[$idx]}.c 
