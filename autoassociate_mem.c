@@ -76,7 +76,7 @@ void Output_Pattern(int k)
         printf("\n");
     }
     printf("\n\n\n");
-    getchar();
+    // getchar();
 }
 
 /***********************************************************************/
@@ -94,7 +94,7 @@ void Output_State(int k)
         printf("\n");
     }
     printf("\n\n\n");
-    getchar();
+    // getchar();
 }
 
 /***********************************************************************/

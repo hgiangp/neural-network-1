@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 
-files=("one_neuron" "singlelayer_nn" "singlelayer_nn_discrete" "multilayer_nn" "autoassociate_mem" "one_neuron_perception")
-idx=3
+files=("one_neuron" "singlelayer_nn" "singlelayer_nn_discrete" "multilayer_nn" "autoassociate_mem" "one_neuron_perception" "wta")
 
-cfile=${files[$idx]}.c 
-ofile=./outs/${files[$idx]}.out 
-lfile=./logs/${files[$idx]}.log
+idx=$1
+file_name=${files[$idx]}
+echo $file_name running ....
+
+cfile=$file_name.c 
+ofile=./outs/$file_name.out 
+lfile=./logs/$file_name.log
 
 gcc $cfile -o $ofile 
 
