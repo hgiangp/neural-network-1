@@ -6,7 +6,8 @@ files=("one_neuron" \
 "multilayer_nn" \
 "autoassociate_mem" \
 "one_neuron_perception" \
-"wta"\
+"wta" \
+"wta_bk" \
 )
 
 idx=$1
