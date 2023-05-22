@@ -8,6 +8,7 @@ files=("one_neuron" \
 "one_neuron_perception" \
 "wta" \
 "wta_bk" \
+"sofm" \
 )
 
 idx=$1
@@ -18,8 +19,11 @@ cfile=$file_name.c
 ofile=./outs/$file_name.out 
 lfile=./logs/$file_name.log
 
-gcc $cfile -o $ofile 
-
-./$ofile | tee $lfile 
+gcc $cfile -o $ofile -lm
+if [ $idx -eq 8 ]; then
+    ./$ofile './data/feature_map_data.txt'| tee $lfile
+else
+    ./$ofile | tee $lfile
+fi 
 
 # python3 utils.py | tee data/iris.log
