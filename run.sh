@@ -20,8 +20,18 @@ ofile=./outs/$file_name.out
 lfile=./logs/$file_name.log
 
 gcc $cfile -o $ofile -lm
+
+# Check input file for sofm 
+data_file=""
+if [ $2 -eq 1 ]; then
+    data_file='./data/feature_map_data.txt'
+else
+    data_file='./data/iris.log'
+fi 
+
+# run
 if [ $idx -eq 8 ]; then
-    ./$ofile './data/feature_map_data.txt'| tee $lfile
+    ./$ofile $data_file| tee $lfile
 else
     ./$ofile | tee $lfile
 fi 

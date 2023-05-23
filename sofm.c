@@ -19,11 +19,11 @@
 #include <float.h>
 #include <time.h>
 
-#define I 5
-#define P 32
+#define I 5 // num_features 
+#define P 32 // num_inputs 
 #define M1 11
 #define M2 11
-#define N (M1 * M2)
+#define N (M1 * M2) // num_neurons
 
 #define frand() (rand() % 10000 / 10001.0)
 #define randomize() srand((unsigned int)time(NULL))
