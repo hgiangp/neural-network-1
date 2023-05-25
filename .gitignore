@@ -2,3 +2,5 @@ outs
 logs
 .DS_Store
 .vscode
+data/cifar*
+final/data/MNIST/raw
