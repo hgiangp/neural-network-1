@@ -4,3 +4,4 @@ logs
 .vscode
 data/cifar*
 final/data/MNIST/raw
+final/__pycache__/
