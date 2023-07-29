@@ -1,0 +1,6 @@
+torch.Size([7850])
+tensor(11.8505, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(-8.7001, device='cuda:0', grad_fn=<MinBackward1>)
+torch.Size([7850, 7850])
+tensor(61.5142)
+tensor(-18.0638)

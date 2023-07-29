@@ -4,4 +4,7 @@ logs
 .vscode
 data/cifar*
 final/data/MNIST/raw
+final/data/cifar
 final/__pycache__/
+hessian.pt 
+jacobian.pt 
